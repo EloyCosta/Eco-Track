@@ -1,6 +1,6 @@
 import Router from '@koa/router';
-import { AuthController } from '../controllers/authController';
-import { authMiddleware } from '../middleware/auth';
+import { AuthController } from '../controllers/auth.controller';
+import { authMiddleware } from '../middleware/auth.middleware';
 
 const router = new Router({
   prefix: '/api/auth'

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { IJWTPayload } from '../interfaces/IUser';
+import { IJWTPayload } from '../interfaces/user.interface';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'ecotrack_secret_key';
 const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'ecotrack_refresh_secret';

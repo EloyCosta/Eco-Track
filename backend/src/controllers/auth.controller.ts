@@ -1,6 +1,6 @@
 import { Context } from 'koa';
 import { AuthService } from '../services/authService';
-import { registerSchema, loginSchema } from '../validations/authSchemas';
+import { registerSchema, loginSchema } from '../validations/auth.schemas';
 
 export class AuthController {
   static async register(ctx: Context) {

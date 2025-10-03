@@ -7,7 +7,8 @@ import { config } from 'dotenv';
 config();
 
 // Importar rotas
-import authRoutes from './routes/authRoutes';
+import authRoutes from './routes/auth.router';
+import activityRoutes from './routes/activity.router';
 
 const app = new Koa();
 
@@ -31,7 +32,7 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 });
 
-// Error handling middleware
+
 // Error handling middleware
 app.use(async (ctx, next) => {
   try {
@@ -57,6 +58,10 @@ app.use(async (ctx, next) => {
 // Rotas
 app.use(authRoutes.routes());
 app.use(authRoutes.allowedMethods());
+
+app.use(activityRoutes.routes());      
+app.use(activityRoutes.allowedMethods());
+
 
 // Health check route
 app.use(async (ctx) => {

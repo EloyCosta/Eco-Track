@@ -27,10 +27,11 @@ export const testConnection = async (): Promise<boolean> => {
     const client = await pool.connect();
     const result = await client.query('SELECT NOW()');
     client.release();
-    console.log('✅ PostgreSQL connected successfully');
+    console.log('✅ PostgreSQL conectado com sucesso!');
+    
     return true;
   } catch (error) {
-    console.error('❌ PostgreSQL connection error:', error);
+    console.error('❌ Falha na conexão com o PostgreSQL', error);
     return false;
   }
 };

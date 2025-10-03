@@ -1,5 +1,5 @@
 import { Context, Next } from 'koa';
-import { JWTUtils } from '../utils/jwtUtils';
+import { JWTUtils } from '../utils/jwt.utils';
 
 export const authMiddleware = async (ctx: Context, next: Next) => {
   try {
