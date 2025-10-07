@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useAuth } from './contexts/AuthContext';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Home from './pages/Home';
+
 // import Register from './pages/Register'; // Vamos criar depois
 // import Dashboard from './pages/Dashboard'; // Vamos criar depois
 
@@ -110,7 +110,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/" element={<Home />} />
+        
       </Routes>
     </Router>
   );
