@@ -6,6 +6,7 @@ interface User {
   id: number;
   name: string;
   email: string;
+  avatar?: string;
 }
 
 // ✅ 2. INTERFACE DO CONTEXTO

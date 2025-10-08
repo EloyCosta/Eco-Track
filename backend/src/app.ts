@@ -9,12 +9,28 @@ config();
 // Importar rotas
 import authRoutes from './routes/auth.router';
 import activityRoutes from './routes/activity.router';
+import { Context } from 'vm';
 
 const app = new Koa();
 
 // Middlewares
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: (ctx: Context) => {
+    // ✅ Permite várias portas do localhost
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'http://localhost:5174', 
+      'http://localhost:5175',
+      'http://localhost:3000'
+    ];
+    const requestOrigin = ctx.headers.origin;
+    
+    if (allowedOrigins.includes(requestOrigin)) {
+      return requestOrigin;
+    }
+    // ✅ Retorna a primeira permitida como fallback
+    return allowedOrigins[0];
+  },
   credentials: true
 }));
 
