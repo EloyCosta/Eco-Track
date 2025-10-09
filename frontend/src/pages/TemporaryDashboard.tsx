@@ -3,16 +3,11 @@
 import React from "react"
 import { useAuth } from "../contexts/AuthContext"
 import { motion } from "framer-motion"
+import InfoCard from "@/components/InfoCard"
+import { Leaf, Activity, FileText, BarChart3 } from "lucide-react"
 
 const TemporaryDashboard: React.FC = () => {
   const { user, logout } = useAuth()
-
-  const cards = [
-    { title: "Total Emissões", value: "⚠ Em Construção" },
-    { title: "Projetos Ativos", value: "⚠ Em Construção" },
-    { title: "Atividade Recente", value: "⚠ Em Construção" },
-    { title: "Relatórios", value: "⚠ Em Construção" },
-  ]
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-start p-4 bg-gray-50">
@@ -30,19 +25,10 @@ const TemporaryDashboard: React.FC = () => {
           },
         }}
       >
-        {cards.map((card) => (
-          <motion.div
-            key={card.title}
-            className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm text-center"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-          >
-            <h2 className="text-sm font-medium text-gray-500 mb-2">{card.title}</h2>
-            <p className="text-xl font-bold text-gray-700">{card.value}</p>
-          </motion.div>
-        ))}
+        <InfoCard title="Total Emissões" icon={<Leaf />} status="emConstrucao" />
+        <InfoCard title="Projetos Ativos" icon={<Activity />} status="ativo" />
+        <InfoCard title="Atividade Recente" icon={<BarChart3 />} status="carregando" />
+        <InfoCard title="Relatórios" icon={<FileText />} status="alerta" />
       </motion.div>
 
       {/* Boas-vindas do usuário */}
